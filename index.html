@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration System</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <span class="menu-icon" onclick="openNav()">&#9776;</span> <!-- Hamburger menu icon -->
+      <h1 class="title">Student Registration System</h1>
+      <button class="sign-in-btn" onclick="location.href='login.html'">Sign In</button>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="student.html">Student Information</a>
+    <a href="receipt.html"> Fee Receipt</a>
+    <a href="registration.html">Semester Registration</a>
+    <a href="undertaking.html">Undertaking Forms</a>
+    <a href="timetable.html">Timetable</a>
+  </div>
+
+  <main>
+    <div class="hero">
+      
+   <div class="image-container">
+    <img src="image/791.jpg" alt="Main Image" class="main-image">
+</div>
+
+  <script src="script.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px"; // Open the sidebar
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0"; // Close the sidebar
+    }
+  </script>
+  <script src="api.js"></script>
+</body>
+</html>
+
+
+
+

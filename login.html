@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Student Management System</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      padding: 20px;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .system-title {
+      text-align: center;
+      color: #1e3c72;
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+
+    .login-tabs {
+      display: flex;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #e8eef8;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: #1e3c72;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #344767;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e8eef8;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #1e3c72;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button[class="submit"] {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+    }
+
+    button[class="submit"]:hover {
+      transform: translateY(-2px);
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #344767;
+    }
+
+    .forgot-password {
+      color: #1e3c72;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #2a5298;
+    }
+
+    .login-form {
+      display: none;
+    }
+
+    .login-form.active {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="system-title">Student Management System</h1>
+    
+    <div class="login-tabs">
+      <button class="tab-btn active" onclick="switchTab('student')">Student Login</button>
+      <button class="tab-btn" onclick="switchTab('admin')">Admin Login</button>
+    </div>
+
+    <form id="student-login" class="login-form active" action="/student-login" method="POST">
+      <div class="form-group">
+        <label for="student-email">Student Email:</label>
+        <input type="email" id="student-email" name="email" required placeholder="Enter your student email">
+      </div>
+      <div class="form-group">
+        <label for="student-password">Password:</label>
+        <input type="password" id="student-password" name="password" required placeholder="Enter your password">
+      </div>
+      <button class="submit" onclick="location.href='index.html'">Sign In as student</button>
+      <div class="form-footer">
+        <label class="remember-me">
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </div>
+    </form>
+
+    <form id="admin-login" class="login-form" action="/admin-login" method="POST">
+      <div class="form-group">
+        <label for="admin-email">Admin Email:</label>
+        <input type="email" id="admin-email" name="email" required placeholder="Enter your admin email">
+      </div>
+      <div class="form-group">
+        <label for="admin-password">Password:</label>
+        <input type="password" id="admin-password" name="password" required placeholder="Enter your password">
+      </div>
+      <button class="submit" onclick="location.href='admin-panel.html'">Sign In as Admin</button>
+      <div class="form-footer">
+        <label class="remember-me">
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function switchTab(type) {
+      // Update tab buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Update forms
+      document.querySelectorAll('.login-form').forEach(form => form.classList.remove('active'));
+      document.getElementById(`${type}-login`).classList.add('active');
+    }
+  </script>
+</body>
+</html>

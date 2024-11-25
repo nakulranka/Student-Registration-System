@@ -1,0 +1,80 @@
+<!-- student.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="student.css">
+
+</head>
+<body>
+    <div class="header-container">
+        <span class="menu-icon" onclick="openNav()">☰</span>
+        <h1 class="title">Student Registration System</h1>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="index.html">Home</a>
+        <a href="receipt.html">Fee Receipt</a>
+        <a href="registration.html">Semester Registration</a>
+        <a href="undertaking.html">Undertaking Forms</a>
+        <a href="timetable.html">Timetable</a>
+        
+    </div>
+
+    <main role="main">
+        <section id="studentForm" class="section student-section">
+            <h2>Student Registration</h2>
+            <form id="studentInfoForm">
+                <div class="form-group">
+                    <label for="roll_no">Roll No:</label>
+                    <input type="text" id="roll_no" name="roll_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="adhar_no">Aadhar No:</label>
+                    <input type="text" id="adhar_no" name="adhar_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone_no">Phone No:</label>
+                    <input type="tel" id="phone_no" name="phone_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_id">Email ID:</label>
+                    <input type="email" id="email_id" name="email_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="abc_id">ABC ID:</label>
+                    <input type="text" id="abc_id" name="abc_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="semester">Blood Group:</label>
+                    <select id="blood_group" name="blood_group" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <button type="submit">Save</button>
+            </form>
+            <div id="studentList"></div>
+        </section>
+    </main>
+    <script src="student.js"></script>
+</body>
+</html>

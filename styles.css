@@ -1,0 +1,322 @@
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F9FAFB;
+  color: #374151;
+  transition: margin-left 0.5s;
+}
+
+/* Header Styling */
+header {
+  background: linear-gradient(135deg, #4299E1, #2B6CB0);
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(67, 152, 227, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.menu-icon {
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #4299E1, #2B6CB0);
+  overflow-x: hidden;
+  transition: width 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  color: #E2E8F0;
+  display: block;
+  transition: 0.3s;
+  border-left: 3px solid transparent;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #EDF2F7;
+  padding-left: 30px;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #EDF2F7;
+}
+
+/* Main Content and Form Sections */
+.student-section,
+#receipt,
+#registration,
+#undertaking,
+#course,
+#timetable {
+  padding: 40px;
+  max-width: 800px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(67, 152, 227, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Hero Section with Background Image */
+.hero {
+  background-image: url('path/to/your/image.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(67, 152, 227, 0.7);
+}
+
+.hero-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtext {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Form Styling */
+.student-form,
+#receiptForm,
+#registrationForm,
+#undertakingForm,
+#courseForm,
+#timetableForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label Styling */
+.student-form label,
+#receiptForm label,
+#registrationForm label,
+#undertakingForm label,
+#courseForm label,
+#timetableForm label {
+  color: #2B6CB0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Input and Button Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  padding: 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #4299E1;
+  outline: none;
+}
+
+button,
+.button-primary {
+  background: linear-gradient(135deg, #4299E1, #2B6CB0);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover,
+.button-primary:hover {
+  background: linear-gradient(135deg, #2B6CB0, #1A365D);
+}
+
+/* Footer Styling */
+footer {
+  background-color: #2B6CB0;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtext {
+    font-size: 1.2rem;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar a {
+    font-size: 1rem;
+  }
+
+  .student-section,
+  #receipt,
+  #registration,
+  #undertaking,
+  #course,
+  #timetable {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Additional Enhancements */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #1A202C;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #4A5568;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #718096;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .hero-text {
+    font-size: 2rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+  }
+}

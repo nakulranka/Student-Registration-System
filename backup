@@ -1,0 +1,26 @@
+// 3. Semester Registration API
+app.post('/api/registration', async (req, res) => {
+    try {
+        const studentExists = await checkStudentExists(req.body.roll_no);
+        if (!studentExists) {
+            return res.status(404).json({ error: 'Student not found. Please register student first.' });
+        }
+
+        const registrationData = {
+            roll_no: req.body.registrationID,
+            semester: req.body.semester
+        };
+
+        conn.query('INSERT INTO semester_registration SET ?', registrationData, (err, result) => {
+            if (err) {
+                console.error('Error in semester registration:', err);
+                res.status(500).json({ error: 'Error in semester registration' });
+                return;
+            }
+            res.json({ message: 'Semester registration successful' });
+        });
+    } catch (err) {
+        console.error('Error in registration:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
